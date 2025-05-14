@@ -17,7 +17,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} antialiased`} >
+        className={`${inter.className} antialiased grad`} >
+        <div className="-z-10 blux" />
         {children}
       </body>
     </html>
