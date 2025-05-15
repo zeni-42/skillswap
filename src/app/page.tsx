@@ -1,20 +1,22 @@
+"use client"
 import Navbar from "@/components/Navbar";
-import { MessageSquare } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import png1 from "@/assets/png1.png"
 import Footer from "@/components/Footer";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+    const router = useRouter()
     return(
         <>
         <Navbar />
+        <div className="-z-10 blux" />
         <section className="z-10 backdrop-blur-[800px] ">
             <div className="w-full h-screen flex justify-center items-center flex-col gap-10">
                 <h1 className="text-zinc-800 text-4xl font-semibold flex gap-2 " >Discover the <p className="text-[#6a00ff] uppercase font-semibold "> skill </p> that turns effort into <p className="text-[#6a00ff] uppercase font-semibold ">income</p></h1>
                 <h2 className="text-zinc-700" >Learn smarter. Earn faster</h2>
                 <div className="w-full flex justify-center items-center gap-10" >
-                    <button className="cursor-pointer w-40 bg-[#6a00ff] px-7 py-3 rounded-full" >
+                    <button onClick={() => router.push('/auth/signup')} className="cursor-pointer w-40 bg-[#6a00ff] px-7 py-3 rounded-full" >
                         <h1 className="font-semibold" >Get Started</h1>
                     </button>
                     <button className="cursor-pointer w-40 h-12 border border-zinc-400 rounded-full text-zinc-600">Try demo</button>

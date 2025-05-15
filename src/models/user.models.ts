@@ -40,7 +40,6 @@ const userSchema: Schema <userInterface> = new mongoose.Schema({
     skills: [
         {
             type: String,
-            unique: true,
             index: true,
         }
     ],
