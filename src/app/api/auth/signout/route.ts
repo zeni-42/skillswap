@@ -9,6 +9,12 @@ export async function POST(request: Request) {
         return ResponseHelper.error("Id is required", 400)
     }
 
+    const cookie = await cookies()
+    const accessToken = cookie.get("accessToken")
+    if (!accessToken) {
+        return ResponseHelper.error("Unauthorized request", 401)
+    }
+
     try {
         await CONNECTDB()
         const user = await User.findById(userId)
@@ -25,7 +31,6 @@ export async function POST(request: Request) {
             }
         )
 
-        const cookie = await cookies()
         cookie.delete("refreshToken")
         cookie.delete("accessToken")
 

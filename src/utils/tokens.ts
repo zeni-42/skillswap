@@ -3,7 +3,7 @@ import { ObjectId } from "mongoose";
 import jwt from "jsonwebtoken";
 
 
-export async function accessToken(id: ObjectId) {
+export async function genAccessToken(id: ObjectId) {
     if (!id) {
         throw new Error("Id is required for token")
     }
@@ -31,7 +31,7 @@ export async function accessToken(id: ObjectId) {
     return accessToken;
 }
 
-export async function refreshToken(id: ObjectId) {
+export async function genRefreshToken(id: ObjectId) {
     if (!id) {
         throw new Error("Id is required for token")
     }

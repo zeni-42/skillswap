@@ -1,7 +1,7 @@
 import { User } from "@/models/user.models"
 import CONNECTDB from "@/utils/connectdb"
 import ResponseHelper from "@/utils/responsehelper"
-import { accessToken, refreshToken } from "@/utils/tokens"
+import { genAccessToken, genRefreshToken } from "@/utils/tokens"
 import bcrypt from "bcryptjs"
 import { ObjectId } from "mongoose"
 import { cookies } from "next/headers"
@@ -24,8 +24,8 @@ export async function POST(request: Request) {
             return ResponseHelper.error("Incorrect password", 410)
         }
 
-        const aToken = await accessToken(user?._id as ObjectId);
-        const rToken = await refreshToken(user?._id as ObjectId);
+        const aToken = await genAccessToken(user?._id as ObjectId);
+        const rToken = await genRefreshToken(user?._id as ObjectId);
 
         const updatedUser = await User.findByIdAndUpdate(user?._id, {
             refreshToken: rToken,

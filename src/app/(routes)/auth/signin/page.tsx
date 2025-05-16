@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form"
 import { toast } from "react-toastify"
 import axios from "axios"
 import { useRouter } from "next/navigation"
+import { useState } from "react"
 
 type formData = {
     email: string,
@@ -15,6 +16,7 @@ type formData = {
 export default function Signup(){
     const router = useRouter()
     const { register, handleSubmit, reset } = useForm<formData>()
+    const [skills, setSkills] = useState<Array<string>>([])
 
     const handleAddData = async (data: formData) => {
         if (data?.email == "" || data?.password == "") {
@@ -24,6 +26,11 @@ export default function Signup(){
         try {
             const response = await axios.post('/api/auth/signin', {...data})
             if (response.status == 200) {
+                setSkills(response.data?.data?.skills)
+                if (skills.length <= 0) {
+                    router.push('/update-skills')
+                    return;
+                }
                 router.push('/home')
                 reset()
             }
