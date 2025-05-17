@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${inter.className} antialiased grad`} >
-          <ToastContainer position="top-right" autoClose={5000} hideProgressBar={true} newestOnTop={false} closeOnClick={false} rtl={false} pauseOnFocusLoss theme="dark" transition={Slide} />
+          <ToastContainer position="top-right" autoClose={2000} hideProgressBar={true} newestOnTop={false} closeOnClick={false} rtl={false} pauseOnFocusLoss theme="dark" transition={Slide} />
         {children}
       </body>
     </html>

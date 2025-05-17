@@ -6,7 +6,7 @@ import { ObjectId } from "mongoose";
 import { cookies } from "next/headers";
 
 export async function POST(request: Request) {
-    const userId = await request.json()
+    const {userId} = await request.json()
     if (!userId) {
         return ResponseHelper.error("Missing fields", 400)
     }

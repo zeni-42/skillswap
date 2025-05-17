@@ -36,8 +36,8 @@ export async function POST(request: Request) {
         )
 
         const cookie = await cookies()
-        cookie.set('refreshToken', rToken, { secure: true, sameSite: true, httpOnly: true, maxAge: 60*60*24*10 })
-        cookie.set('accessToken', aToken, { secure: true, sameSite: true, httpOnly: true, maxAge: 60*15 })
+        cookie.set('refreshToken', rToken, { secure: true, sameSite: true, httpOnly: true, maxAge: 60*60*24*30 })
+        cookie.set('accessToken', aToken, { secure: true, sameSite: true, httpOnly: true, maxAge: 60*60*24*2 })
 
         return ResponseHelper.success(loggedInUser, 'User logged in', 200)
     } catch (error) {
