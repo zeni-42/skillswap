@@ -24,13 +24,18 @@ export default function Signup(){
         try {
             const response = await axios.post('/api/auth/signin', {...data})
             if (response.status == 200) {
+                localStorage.setItem("avatar", response.data?.data?.avatar)
                 const fetchedSkills = response.data?.data?.skills
                 if (fetchedSkills.length > 0) {
                     localStorage.setItem("_id", response.data?.data?._id)
+                    localStorage.setItem("name", response.data?.data?.fullName)
+                    localStorage.setItem("email", response.data?.data?.email)
                     router.push('/home')
                     reset()
                 } else {
                     localStorage.setItem("_id", response.data?.data?._id)
+                    localStorage.setItem("name", response.data?.data?.fullName)
+                    localStorage.setItem("email", response.data?.data?.email)
                     router.push('/update-skills')
                 }
             }

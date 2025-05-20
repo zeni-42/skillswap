@@ -36,7 +36,7 @@ export async function POST(request: Request) {
 
         return ResponseHelper.success({}, "User logged out", 200)
     } catch (error) {
-        console.log("Failed to logout user | Please check /api/signout");
+        console.log("Failed to logout user | Please check /api/auth/signout");
         return ResponseHelper.error("Internal server error", 500, error)
     }
 }

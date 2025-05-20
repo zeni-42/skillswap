@@ -1,12 +1,13 @@
-import mongoose, { Document, Schema } from "mongoose";
+import mongoose, { Document, ObjectId, Schema } from "mongoose";
 
 interface userInterface extends Document {
     email: string,
     fullName: string,
     password: string,
     avatar: string,
+    banner: string,
     refreshToken: string,
-    skills: string[],
+    skills: ObjectId[],
     isVerified: boolean,
     verificationCode: number,
     isPro: boolean
@@ -34,12 +35,15 @@ const userSchema: Schema <userInterface> = new mongoose.Schema({
         required: true,
         default: "https://res.cloudinary.com/dfbtssuwy/image/upload/v1735838884/ljziqvhelksqmytkffj9.jpg",
     },
+    banner: {
+        type: String,
+    },
     refreshToken: {
         type: String,
     },
     skills: [
         {
-            type: String,
+            type: mongoose.Schema.Types.ObjectId,
             index: true,
         }
     ],

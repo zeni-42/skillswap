@@ -1,6 +1,7 @@
 import { User } from "@/models/user.models"
 import CONNECTDB from "@/utils/connectdb"
 import ResponseHelper from "@/utils/responsehelper"
+import { ObjectId } from "mongoose"
 import { cookies } from "next/headers"
 
 export async function POST(request: Request) {
@@ -27,7 +28,7 @@ export async function POST(request: Request) {
             await User.findByIdAndUpdate(
                 userId,
                 {
-                    $pull: { skills: skillId }
+                    $pull: { skills: skillId as ObjectId }
                 },
                 { new: true }
             )
@@ -37,7 +38,7 @@ export async function POST(request: Request) {
             await User.findByIdAndUpdate(
                 userId,
                 {
-                    $addToSet: { skills: skillId },
+                    $addToSet: { skills: skillId as ObjectId },
                 },
                 { new: true }
             )
@@ -45,7 +46,7 @@ export async function POST(request: Request) {
         }
 
     } catch (error) {
-        console.log("Failed to update skills | Please check /api/update-skills");
+        console.log("Failed to update skills | Please check /api/user/update-skills");
         return ResponseHelper.error("Something went wrong", 500, error)
     }
 }

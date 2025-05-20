@@ -2,7 +2,7 @@
 import Image from "next/image";
 import svg from "@/assets/image.svg"
 import Link from "next/link";
-import { easeInOut, easeOut, motion } from "motion/react";
+import { easeOut, motion } from "motion/react";
 
 export default function Navbar() {
     return (

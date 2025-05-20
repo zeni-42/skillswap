@@ -31,7 +31,7 @@ export async function POST(request: Request) {
 
         return ResponseHelper.success(createdUser, "User registered")
     } catch (error) {
-        console.log("Failed to register user | Please check /api/signup");
-        return ResponseHelper.error("Someting went wrong", 500, error)
+        console.log("Failed to register user | Please check /api/auth/signup");
+        return ResponseHelper.error("Something went wrong", 500, error)
     }
 }

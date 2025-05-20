@@ -41,7 +41,7 @@ export async function POST(request: Request) {
 
         return ResponseHelper.success(loggedInUser, 'User logged in', 200)
     } catch (error) {
-        console.log("Failed to login user | Please check /api/signin route");
+        console.log("Failed to login user | Please check /api/auth/signin");
         return ResponseHelper.error("Something went wrong", 500, error);
     }
 }

@@ -1,7 +1,8 @@
 "use client"
 
 import axios from "axios";
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, ChevronRight } from "lucide-react"
+import Link from "next/link";
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
@@ -59,7 +60,7 @@ export default function UpdateSkills() {
                 <div>
                     <div className="w-full flex justify-center items-center " >
                         <input type="text" placeholder="e.g. Graphic Designer" className="rounded-l-lg border border-zinc-300 w-1/3 h-12 px-5 outline-none" />
-                        <button className="bg-[#6a00ff] w-40 h-12 rounded-r-lg text-white font-medium text-lg" > Search </button>
+                        <button className="bg-zinc-800 w-40 h-12 rounded-r-lg text-white font-medium text-lg" > Search </button>
                     </div>
                 </div>
                 <div className="w-full flex justify-center p-10">
@@ -77,6 +78,10 @@ export default function UpdateSkills() {
                         <p className="text-center text-zinc-500 w-full">No skills found.</p>
                         )}
                     </div>
+                </div>
+                <div className="w-full h-[30vh] flex justify-start items-center flex-col gap-5">
+                    <p className="text-zinc-400" >(you can update your skills later)</p>
+                    <Link href={'/update-avatar'} className="w-40 py-3 flex justify-center items-center gap rounded-lg text-white bg-[#6a00ff]" >Continue <ChevronRight /></Link>
                 </div>
             </div>
         </>
