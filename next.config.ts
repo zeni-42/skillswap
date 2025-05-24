@@ -4,7 +4,13 @@ const nextConfig: NextConfig = {
     /* config options here */
     devIndicators: false,
     images: {
-        domains: ['res.cloudinary.com'],
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'res.cloudinary.com',
+                pathname: '/dfbtssuwy/image/upload/**',
+            },
+        ],
     },
 };
 

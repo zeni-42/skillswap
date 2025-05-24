@@ -6,11 +6,13 @@ interface userInterface extends Document {
     password: string,
     avatar: string,
     banner: string,
+    bio: string,
     refreshToken: string,
     skills: ObjectId[],
     isVerified: boolean,
     verificationCode: number,
     isPro: boolean
+    rating: number
 }
 
 const userSchema: Schema <userInterface> = new mongoose.Schema({
@@ -59,6 +61,15 @@ const userSchema: Schema <userInterface> = new mongoose.Schema({
         type: Boolean,
         required: true,
         default: false
+    },
+    rating: {
+        type: Number,
+        required: true,
+        default: 0
+    },
+    bio: {
+        type: String,
+        max: 150
     }
 }, { timestamps: true, versionKey: false })
 

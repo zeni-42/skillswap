@@ -88,7 +88,7 @@ export async function GET(request: Request) {
                 },
                 {
                     $project:{
-                        $skillData: 0
+                        skillData: 0
                     }
                 }
             ])
