@@ -30,12 +30,14 @@ export default function Signup(){
                     localStorage.setItem("_id", response.data?.data?._id)
                     localStorage.setItem("name", response.data?.data?.fullName)
                     localStorage.setItem("email", response.data?.data?.email)
+                    localStorage.setItem("banner", response.data?.data?.banner)
                     router.push('/home')
                     reset()
                 } else {
                     localStorage.setItem("_id", response.data?.data?._id)
                     localStorage.setItem("name", response.data?.data?.fullName)
                     localStorage.setItem("email", response.data?.data?.email)
+                    localStorage.setItem("banner", response.data?.data?.banner)
                     router.push('/update-skills')
                 }
             }

@@ -40,7 +40,7 @@ export default function Home(){
                     <h1 className="text-2xl font-semibold">Find you mentor at Skillswap </h1>
                     <button className="text-sm text-zinc-500 hover:underline cursor-pointer" >View all</button>
                 </div>
-                <div className="w-full h-[25vh] flex justify-start items-start gap-5 py-5 flex-wrap overflow-y-auto" >
+                <div className="w-full max-h-[25vh] flex justify-start items-start gap-5 py-5 flex-wrap overflow-y-auto" >
                     {
                         users.length > 0 ? (
                             users.filter((item: any) => item._id !== userId).slice(0,6).map((item:any) => 

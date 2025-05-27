@@ -39,6 +39,8 @@ const userSchema: Schema <userInterface> = new mongoose.Schema({
     },
     banner: {
         type: String,
+        required: true,
+        default: "https://res.cloudinary.com/dfbtssuwy/image/upload/v1748333020/fhciifhvqp77jufdev4b.jpg",
     },
     refreshToken: {
         type: String,

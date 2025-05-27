@@ -22,6 +22,7 @@ export const config = {
         '/home',
         '/update-skills',
         '/update-avatar',
+        '/update-banner',
         '/profile',
         '/profile/:path'
     ],
